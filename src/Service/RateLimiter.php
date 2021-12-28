@@ -41,7 +41,6 @@ final class RateLimiter
         }
 
         $this->storage->set($payloadKey, json_encode($payload));
-        var_dump(json_encode($payload));
         return $limitExceeded;
     }
 
@@ -93,7 +92,6 @@ final class RateLimiter
             $config = new RateLimiterConfig(3, 3);
             $this->storage->set($key, json_encode($config));
         } else {
-            var_dump($config);
             $config = RateLimiterConfig::createFromArray(json_decode($config, true));
         }
 
